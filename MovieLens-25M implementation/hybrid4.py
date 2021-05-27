@@ -75,7 +75,7 @@ def run_hybrid4(cf_target_user, i):
     file = "Data_Processed/CF_Ratings/cf_ratings" + str(i)
     population_cf = import_data(file)
 
-    file = "Data_Processed/CF_Ratings/cf_ratings" + str(i)
+    file = "Data_Processed/H2_Ratings/h2_ratings" + str(i)
     population_h2 = import_data(file)
 
     population = []
