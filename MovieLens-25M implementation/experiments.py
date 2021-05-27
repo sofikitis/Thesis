@@ -318,12 +318,12 @@ def evaluate1(alg):
 """Import Data"""
 ml25M_profiles_eval = import_ratings_profiles("data_processed/ml25M_users_test_eval.csv")
 
-N_USERS = 155   # len(ml25M_profiles_eval)
+N_USERS = len(ml25M_profiles_eval)
 NOT_EVAL = 0
 
-# evaluate0('cf')
-# evaluate0('cb')
-# evaluate0('h1')
-# evaluate0('h2')
-# evaluate1('h3')
+evaluate0('cf')
+evaluate0('cb')
+evaluate0('h1')
+evaluate0('h2')
+evaluate1('h3')
 evaluate1('h4')
