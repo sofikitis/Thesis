@@ -159,16 +159,16 @@ def hybrid4_25M(target_profile, i):
 
 """Import Data"""
 # Import MovieLens-25M rating profiles (train and test)
-# ml25M_user_profiles_train = import_ratings_profiles("Data_Processed/ml25M_users_train.csv")
+ml25M_user_profiles_train = import_ratings_profiles("Data_Processed/ml25M_users_train.csv")
 ml25M_user_profiles_test_history = import_ratings_profiles("Data_Processed/ml25M_users_test_history.csv")
 
 # Import MovieLens-25M movie profiles
-# ml25M_movie_profiles = import_movie_profiles("Data_Processed/ml25M_movie_profiles.csv")
+ml25M_movie_profiles = import_movie_profiles("Data_Processed/ml25M_movie_profiles.csv")
 
 
 # normalize ratings of users
-# for j in ml25M_user_profiles_train:
-#     j.ratings = j.ratings - np.average(j.ratings) + 0.00000001
+for j in ml25M_user_profiles_train:
+     j.ratings = j.ratings - np.average(j.ratings) + 0.00000001
 
 for j in ml25M_user_profiles_test_history:
     j.ratings = j.ratings - np.average(j.ratings) + 0.00000001
@@ -177,16 +177,13 @@ for j in ml25M_user_profiles_test_history:
 """Run filterings"""
 n = len(ml25M_user_profiles_test_history)
 
-
-for u in range(0, 155):
+for u in range(0, n):
     print("Running for user:", u)
     c_target_profile = ml25M_user_profiles_test_history[u]
 
-    # collaborative_filtering_25M(c_target_profile, ml25M_user_profiles_train, u)
-    # content_based_filtering_25M(c_target_profile, ml25M_movie_profiles, u)
-    # hybrid1_25M(c_target_profile, ml25M_movie_profiles, u)
-    # hybrid2_25M(c_target_profile, ml25M_user_profiles_train, u)
-    # hybrid3_25M(c_target_profile, u)
+    collaborative_filtering_25M(c_target_profile, ml25M_user_profiles_train, u)
+    content_based_filtering_25M(c_target_profile, ml25M_movie_profiles, u)
+    hybrid1_25M(c_target_profile, ml25M_movie_profiles, u)
+    hybrid2_25M(c_target_profile, ml25M_user_profiles_train, u)
+    hybrid3_25M(c_target_profile, u)
     hybrid4_25M(c_target_profile, u)
-
-import experiments
