@@ -10,3 +10,8 @@ Implementation of **Hybrid Models** combining the above methods:
   
 - **Genetic Algorithm** where the initial population are the top-k players of Collaborative and Demographic Filtering 
   The selection process is modeled as a game.
+
+**Results**
+
+- Baseline for the efficient combination of two recommendation methods, providing better results than the individual methods
+- **Choice by Game** a novelty method for the parent selection process in genetic algorithms
