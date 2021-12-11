@@ -217,13 +217,8 @@ def evaluate0(alg):
         final_results = [0, 0, 0, 0, 0, 0]
 
         for c in cur_result:
-            final_results[0] += c[0]
-            final_results[1] += c[1]
-            final_results[2] += c[2]
-            final_results[3] += c[3]
-            final_results[4] += c[4]
-            final_results[5] += c[5]
-            # print(c[0], '\t', c[1], '\t', c[2], '\t', c[3], '\t', c[4], '\t', c[5])
+            final_results = np.add(final_results, c)
+
 
         print("NDCG@10", end=' ')
         print(final_results[0] / N_USERS)
@@ -249,12 +244,8 @@ def evaluate1(alg):
     final_results = [0, 0, 0, 0, 0, 0]
 
     for c in results:
-        final_results[0] += c[0]
-        final_results[1] += c[1]
-        final_results[2] += c[2]
-        final_results[3] += c[3]
-        final_results[4] += c[4]
-        final_results[5] += c[5]
+        final_results = np.add(final_results, c)
+
 
     print("NDCG@10", end=' ')
     print(final_results[0] / N_USERS)
